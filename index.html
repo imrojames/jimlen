@@ -398,7 +398,7 @@
 			<div class="row">
 				<div class="row animate-box">
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<span>RSVP</span>
+						<span id="rsvpText">RSVP</span>
 						<h2>Respond Us</h2>
 						<p>
 							Your response is requested by the 15th of June.
@@ -598,15 +598,18 @@
 	document.addEventListener('DOMContentLoaded', function() {
 		// Get the isTrue parameter value
 		const forPrincipal = getUrlParameter('forPrincipal');
+		const principalName = getUrlParameter('name');
 		
 		// Elements to show/hide based on parameter
 		const mainContent = document.querySelector('.for-all');
 		const alternativeContent = document.querySelector('.for-principal');
+		const rsvpSpan = document.getElementById('rsvpText');
 
 		if (forPrincipal === '1') {
 			// Show main content
 			if (mainContent) mainContent.style.display = 'none';
 			if (alternativeContent) alternativeContent.style.display = 'block';
+			if (rsvpSpan) rsvpSpan.textContent = `RSVP ${principalName}`;
 		} else {
 			// Show alternative content
 			if (mainContent) mainContent.style.display = 'block';
