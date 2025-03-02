@@ -103,7 +103,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-					<h2>Hello!</h2>
+					<h2 id="greetingText">Hello!</h2>
 					<h3>June 20th, 2025 Marigondon, Lapu-Lapu City, Cebu</h3>
 					<p>We invited you to celebrate our wedding</p>
 				</div>
@@ -369,22 +369,17 @@
 						</div>
 						<div class="col-md-3 col-sm-6 animate-box">
 							<div class="feature-center">
-								<span class="icon" style="background-color: #003300;"></span>
+								<span class="icon" style="background-color: #083521;"></span>
+							</div>
+						</div>
+						<div class="col-md-5 col-sm-6 animate-box">
+							<div class="feature-center">
+								<span class="icon" style="background-color: #b58539;"></span>
 							</div>
 						</div>
 						<div class="col-md-3 col-sm-6 animate-box">
 							<div class="feature-center">
-								<span class="icon" style="background-color: #006600;"></span>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-6 animate-box">
-							<div class="feature-center">
-								<span class="icon" style="background-color: #F7BCBC;"></span>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-6 animate-box">
-							<div class="feature-center">
-								<span class="icon" style="background-color: #F7D9BC;"></span>
+								<span class="icon" style="background-color: #e6dbc5;"></span>
 							</div>
 						</div>
 					</div>
@@ -599,11 +594,14 @@
 		// Get the isTrue parameter value
 		const forPrincipal = getUrlParameter('forPrincipal');
 		const principalName = getUrlParameter('name');
+		const guestName = getUrlParameter('guestName');
 		
 		// Elements to show/hide based on parameter
 		const mainContent = document.querySelector('.for-all');
 		const alternativeContent = document.querySelector('.for-principal');
 		const rsvpSpan = document.getElementById('rsvpText');
+		const greetingSpan = document.getElementById('greetingText');
+
 
 		if (forPrincipal === '1') {
 			// Show main content
@@ -614,6 +612,11 @@
 			// Show alternative content
 			if (mainContent) mainContent.style.display = 'block';
 			if (alternativeContent) alternativeContent.style.display = 'none';
+		}
+
+		if (guestName) {
+			if (rsvpSpan) rsvpSpan.textContent = `RSVP ${guestName}`;
+			if (greetingSpan) greetingSpan.textContent = `Hello ${guestName}`;
 		}
 	});
 </script>
